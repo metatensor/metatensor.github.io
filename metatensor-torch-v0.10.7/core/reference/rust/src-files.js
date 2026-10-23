@@ -1,0 +1,2 @@
+createSrcSidebar('[["metatensor",["",[["block",[],["block_mut.rs","block_ref.rs","mod.rs","owned.rs"]],["data",[],["array.rs","array_ref.rs","empty.rs","external.rs","mod.rs","ndarray_array.rs","origin.rs"]],["io",[],["block.rs","labels.rs","mod.rs","tensor.rs"]]],["errors.rs","labels.rs","lib.rs","tensor.rs"]]]]');
+//{"start":19,"fragment_lengths":[294]}
