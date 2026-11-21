@@ -1,0 +1,20 @@
+.. _python-api-torch:
+
+API reference
+=============
+
+.. toctree::
+    :maxdepth: 1
+
+    systems
+    models/index
+    misc
+    o3
+    ase
+    serialization
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    cxx/index
