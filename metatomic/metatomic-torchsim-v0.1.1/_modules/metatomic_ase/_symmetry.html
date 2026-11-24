@@ -1,0 +1,804 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html">
+        <link rel="canonical" href="https://docs.metatensor.org/metatomic/latest/_modules/metatomic_ase/_symmetry.html">
+        <link rel="prefetch" href="../../_static/images/metatomic-horizontal.png" as="image">
+        <link rel="prefetch" href="../../_static/images/metatomic-horizontal-dark.png" as="image">
+
+    <link rel="shortcut icon" href="../../_static/metatomic-64.png"><!-- Generated with Sphinx 7.4.7 and Furo 2025.12.19 -->
+        <title>metatomic_ase._symmetry - Metatomic</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/metatomic.css?v=ca173047" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Metatomic</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../../_static/images/metatomic-horizontal.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../../_static/images/metatomic-horizontal-dark.png" alt="Dark Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../torch/index.html">TorchScript backend</a><input aria-label="Toggle navigation of TorchScript backend" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../torch/reference/index.html">API reference</a><input aria-label="Toggle navigation of API reference" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../torch/reference/systems.html">Systems</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../torch/reference/models/index.html">Models</a><input aria-label="Toggle navigation of Models" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../torch/reference/models/export.html">Exporting models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../torch/reference/models/metadata.html">Information about models</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../torch/reference/misc.html">Miscellaneous</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torch/reference/ase.html">Atomic Simulation Environment (ASE) integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torch/reference/serialization.html">Serialization</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../torch/reference/cxx/index.html">C++ API reference</a><input aria-label="Toggle navigation of C++ API reference" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../torch/reference/cxx/systems.html">Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../torch/reference/cxx/models.html">Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../torch/reference/cxx/misc.html">Miscellaneous</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../torch/CHANGELOG.html">Changelog</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../outputs/index.html">Standard model outputs</a><input aria-label="Toggle navigation of Standard model outputs" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../outputs/energy.html">Energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../outputs/non_conservative.html">Non-conservative forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../outputs/non_conservative.html#non-conservative-stress">Non-conservative stress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../outputs/masses.html">Masses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../outputs/positions.html">Positions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../outputs/momenta.html">Momenta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../outputs/velocities.html">Velocities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../outputs/charges.html">Charges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../outputs/heat_flux.html">Heat Flux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../outputs/features.html">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../outputs/variants.html">Output variants</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../engines/index.html">Simulation engines</a><input aria-label="Toggle navigation of Simulation engines" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../engines/ase.html">ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../engines/chemiscope.html">chemiscope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../engines/eon.html">eOn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../engines/gromacs.html">GROMACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../engines/ipi.html">i-PI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../engines/lammps.html">LAMMPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../engines/plumed.html">PLUMED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../engines/torch-sim.html">TorchSim</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/index.html">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/1-export-atomistic-model.html">Exporting a model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/2-running-ase-md.html">Running Molecular Dynamics with ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/3-atomistic-model-with-nl.html">Creating models that use neighbor lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/4-profiling.html">Profiling your models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/5-torchsim-getting-started.html">Getting started with TorchSim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/6-torchsim-batched.html">Batched simulations with TorchSim</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../cite.html">Citing metatomic</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <h1>Source code for metatomic_ase._symmetry</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">._calculator</span><span class="w"> </span><span class="kn">import</span> <span class="n">MetatomicCalculator</span>
+
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">ase</span>  <span class="c1"># isort: skip</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ase.calculators.calculator</span>  <span class="c1"># isort: skip</span>
+
+
+<div class="viewcode-block" id="SymmetrizedCalculator">
+<a class="viewcode-back" href="../../engines/ase.html#metatomic_ase.SymmetrizedCalculator">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SymmetrizedCalculator</span><span class="p">(</span><span class="n">ase</span><span class="o">.</span><span class="n">calculators</span><span class="o">.</span><span class="n">calculator</span><span class="o">.</span><span class="n">Calculator</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Take a MetatomicCalculator and average its predictions to make it (approximately)</span>
+<span class="sd">    equivariant. Only predictions for energy, forces and stress are supported.</span>
+
+<span class="sd">    The default is to average over a quadrature of the orthogonal group O(3) composed</span>
+<span class="sd">    this way:</span>
+
+<span class="sd">    - Lebedev quadrature of the unit sphere (S^2)</span>
+<span class="sd">    - Equispaced sampling of the unit circle (S^1)</span>
+<span class="sd">    - Both proper and improper rotations are taken into account by including the</span>
+<span class="sd">        inversion operation (if ``include_inversion=True``)</span>
+
+<span class="sd">    :param base_calculator: the MetatomicCalculator to be symmetrized</span>
+<span class="sd">    :param l_max: the maximum spherical harmonic degree that the model is expected to</span>
+<span class="sd">        be able to represent. This is used to choose the quadrature order. If ``0``,</span>
+<span class="sd">        no rotational averaging will be performed (it can be useful to average only over</span>
+<span class="sd">        the space group, see ``apply_group_symmetry``).</span>
+<span class="sd">    :param batch_size: number of rotated systems to evaluate at once. If ``None``, all</span>
+<span class="sd">        systems will be evaluated at once (this can lead to high memory usage).</span>
+<span class="sd">    :param include_inversion: if ``True``, the inversion operation will be included in</span>
+<span class="sd">        the averaging. This is required to average over the full orthogonal group O(3).</span>
+<span class="sd">    :param apply_space_group_symmetry: if ``True``, the results will be averaged over</span>
+<span class="sd">        discrete space group of rotations for the input system. The group operations are</span>
+<span class="sd">        computed with `spglib &lt;https://github.com/spglib/spglib&gt;`_, and the average is</span>
+<span class="sd">        performed after the O(3) averaging (if any). This has no effect for non-periodic</span>
+<span class="sd">        systems.</span>
+<span class="sd">    :param store_rotational_std: if ``True``, the results will contain the standard</span>
+<span class="sd">        deviation over the different rotations for each property (e.g., ``energy_std``).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">implemented_properties</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">,</span> <span class="s2">&quot;energies&quot;</span><span class="p">,</span> <span class="s2">&quot;forces&quot;</span><span class="p">,</span> <span class="s2">&quot;stress&quot;</span><span class="p">,</span> <span class="s2">&quot;stresses&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">base_calculator</span><span class="p">:</span> <span class="n">MetatomicCalculator</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">l_max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">include_inversion</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">apply_space_group_symmetry</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">store_rotational_std</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">lebedev_rule</span>  <span class="c1"># noqa: F401</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+                <span class="s2">&quot;scipy is required to use the `SymmetrizedCalculator`, please install &quot;</span>
+                <span class="s2">&quot;it with `pip install scipy` or `conda install scipy`&quot;</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_calculator</span> <span class="o">=</span> <span class="n">base_calculator</span>
+        <span class="k">if</span> <span class="n">l_max</span> <span class="o">&gt;</span> <span class="mi">131</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;l_max=</span><span class="si">{</span><span class="n">l_max</span><span class="si">}</span><span class="s2"> is too large, the maximum supported value is 131&quot;</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">l_max</span> <span class="o">=</span> <span class="n">l_max</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">include_inversion</span> <span class="o">=</span> <span class="n">include_inversion</span>
+
+        <span class="k">if</span> <span class="n">l_max</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">lebedev_order</span><span class="p">,</span> <span class="n">n_inplane_rotations</span> <span class="o">=</span> <span class="n">_choose_quadrature</span><span class="p">(</span><span class="n">l_max</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">quadrature_rotations</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">quadrature_weights</span> <span class="o">=</span> <span class="n">_get_quadrature</span><span class="p">(</span>
+                <span class="n">lebedev_order</span><span class="p">,</span> <span class="n">n_inplane_rotations</span><span class="p">,</span> <span class="n">include_inversion</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># no quadrature</span>
+            <span class="k">if</span> <span class="n">include_inversion</span><span class="p">:</span>  <span class="c1"># identity and inversion</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">quadrature_rotations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">quadrature_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># only the identity</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">quadrature_rotations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">quadrature_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">batch_size</span> <span class="k">if</span> <span class="n">batch_size</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">quadrature_rotations</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">store_rotational_std</span> <span class="o">=</span> <span class="n">store_rotational_std</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apply_space_group_symmetry</span> <span class="o">=</span> <span class="n">apply_space_group_symmetry</span>
+
+<div class="viewcode-block" id="SymmetrizedCalculator.calculate">
+<a class="viewcode-back" href="../../engines/ase.html#metatomic_ase.SymmetrizedCalculator.calculate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">atoms</span><span class="p">:</span> <span class="n">ase</span><span class="o">.</span><span class="n">Atoms</span><span class="p">,</span> <span class="n">properties</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">system_changes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Perform the calculation for the given atoms and properties.</span>
+
+<span class="sd">        :param atoms: the :py:class:`ase.Atoms` on which to perform the calculation</span>
+<span class="sd">        :param properties: list of properties to compute, among ``energy``, ``forces``,</span>
+<span class="sd">            and ``stress``</span>
+<span class="sd">        :param system_changes: list of changes to the system since the last call to</span>
+<span class="sd">            ``calculate``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">system_changes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_calculator</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">system_changes</span><span class="p">)</span>
+
+        <span class="n">compute_forces_and_stresses</span> <span class="o">=</span> <span class="s2">&quot;forces&quot;</span> <span class="ow">in</span> <span class="n">properties</span> <span class="ow">or</span> <span class="s2">&quot;stress&quot;</span> <span class="ow">in</span> <span class="n">properties</span>
+        <span class="n">per_atom</span> <span class="o">=</span> <span class="s2">&quot;energies&quot;</span> <span class="ow">in</span> <span class="n">properties</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">quadrature_rotations</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">rotated_atoms_list</span> <span class="o">=</span> <span class="n">_rotate_atoms</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">quadrature_rotations</span><span class="p">)</span>
+            <span class="n">batches</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">rotated_atoms_list</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rotated_atoms_list</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+            <span class="p">]</span>
+            <span class="n">results</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">batches</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">batch_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_calculator</span><span class="o">.</span><span class="n">compute_energy</span><span class="p">(</span>
+                        <span class="n">batch</span><span class="p">,</span>
+                        <span class="n">compute_forces_and_stresses</span><span class="p">,</span>
+                        <span class="n">per_atom</span><span class="o">=</span><span class="n">per_atom</span><span class="p">,</span>
+                    <span class="p">)</span>
+                    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">batch_results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="n">results</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">[])</span>
+                        <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                            <span class="p">[</span><span class="n">value</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="k">else</span> <span class="n">value</span>
+                        <span class="p">)</span>
+                <span class="k">except</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">OutOfMemoryError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                        <span class="s2">&quot;Out of memory error encountered during rotational averaging. &quot;</span>
+                        <span class="s2">&quot;Please reduce the batch size or use lower rotational &quot;</span>
+                        <span class="s2">&quot;averaging parameters. This can be done by setting the &quot;</span>
+                        <span class="s2">&quot;`batch_size` and `l_max` parameters while initializing the &quot;</span>
+                        <span class="s2">&quot;calculator.&quot;</span>
+                    <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="n">_compute_rotational_average</span><span class="p">(</span>
+                    <span class="n">results</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">quadrature_rotations</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">quadrature_weights</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">store_rotational_std</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_space_group_symmetry</span><span class="p">:</span>
+            <span class="c1"># Apply the discrete space group of the system a posteriori</span>
+            <span class="n">Q_list</span><span class="p">,</span> <span class="n">P_list</span> <span class="o">=</span> <span class="n">_get_group_operations</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">_average_over_group</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">,</span> <span class="n">Q_list</span><span class="p">,</span> <span class="n">P_list</span><span class="p">))</span></div>
+</div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_choose_quadrature</span><span class="p">(</span><span class="n">L_max</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Choose a Lebedev quadrature order and number of in-plane rotations to integrate</span>
+<span class="sd">    spherical harmonics up to degree ``L_max``.</span>
+
+<span class="sd">    :param L_max: maximum spherical harmonic degree</span>
+<span class="sd">    :return: (lebedev_order, n_inplane_rotations)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># fmt: off</span>
+    <span class="n">available</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span>
+        <span class="mi">47</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">113</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">131</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="c1"># fmt: on</span>
+
+    <span class="c1"># pick smallest order &gt;= L_max</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">o</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">available</span> <span class="k">if</span> <span class="n">o</span> <span class="o">&gt;=</span> <span class="n">L_max</span><span class="p">)</span>
+    <span class="c1"># minimal gamma count</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">L_max</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n</span><span class="p">,</span> <span class="n">K</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_rotate_atoms</span><span class="p">(</span><span class="n">atoms</span><span class="p">:</span> <span class="n">ase</span><span class="o">.</span><span class="n">Atoms</span><span class="p">,</span> <span class="n">rotations</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">ase</span><span class="o">.</span><span class="n">Atoms</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a list of copies of ``atoms``, rotated by each of the given ``rotations``.</span>
+
+<span class="sd">    :param atoms: the :py:class:`ase.Atoms` to be rotated</span>
+<span class="sd">    :param rotations: (N, 3, 3) array of orthogonal matrices</span>
+<span class="sd">    :return: list of N :py:class:`ase.Atoms`, each rotated by the corresponding matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rotated_atoms_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">has_cell</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">cell</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">atoms</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">rank</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">rot</span> <span class="ow">in</span> <span class="n">rotations</span><span class="p">:</span>
+        <span class="n">new_atoms</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">new_atoms</span><span class="o">.</span><span class="n">positions</span> <span class="o">=</span> <span class="n">new_atoms</span><span class="o">.</span><span class="n">positions</span> <span class="o">@</span> <span class="n">rot</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">if</span> <span class="n">has_cell</span><span class="p">:</span>
+            <span class="n">new_atoms</span><span class="o">.</span><span class="n">set_cell</span><span class="p">(</span>
+                <span class="n">new_atoms</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">array</span> <span class="o">@</span> <span class="n">rot</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">scale_atoms</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">apply_constraint</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span>
+            <span class="n">new_atoms</span><span class="o">.</span><span class="n">wrap</span><span class="p">()</span>
+        <span class="n">rotated_atoms_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_atoms</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rotated_atoms_list</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_quadrature</span><span class="p">(</span><span class="n">lebedev_order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n_rotations</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">include_inversion</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lebedev(S^2) x uniform angle quadrature on SO(3).</span>
+<span class="sd">    If include_inversion=True, extend to O(3) by adding inversion * R.</span>
+
+<span class="sd">    :param lebedev_order: order of the Lebedev quadrature on the unit sphere</span>
+<span class="sd">    :param n_rotations: number of in-plane rotations per Lebedev node</span>
+<span class="sd">    :param include_inversion: if ``True``, include the inversion operation in the</span>
+<span class="sd">        quadrature</span>
+<span class="sd">    :return: (N, 3, 3) array of orthogonal matrices, and (N,) array of weights</span>
+<span class="sd">        associated to each matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">lebedev_rule</span>
+
+    <span class="c1"># Lebedev nodes (X: (3, M))</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">lebedev_rule</span><span class="p">(</span><span class="n">lebedev_order</span><span class="p">)</span>  <span class="c1"># w sums to 4*pi</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>  <span class="c1"># (M,)</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>  <span class="c1"># (M,)</span>
+    <span class="c1"># beta = np.arccos(np.clip(z, -1.0, 1.0))  # (M,)</span>
+
+    <span class="n">K</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_rotations</span><span class="p">)</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># (K,)</span>
+
+    <span class="n">Rot</span> <span class="o">=</span> <span class="n">_rotations_from_angles</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">)</span>
+    <span class="n">R_so3</span> <span class="o">=</span> <span class="n">Rot</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>  <span class="c1"># (N, 3, 3)</span>
+
+    <span class="c1"># SO(3) Haar–probability weights: w_i/(4*pi*K), repeated over gamma</span>
+    <span class="n">w_so3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">w</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">K</span><span class="p">),</span> <span class="n">repeats</span><span class="o">=</span><span class="n">gamma</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>  <span class="c1"># (N,)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">include_inversion</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">R_so3</span><span class="p">,</span> <span class="n">w_so3</span>
+
+    <span class="c1"># Extend to O(3) by appending inversion * R</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">R_o3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">R_so3</span><span class="p">,</span> <span class="n">P</span> <span class="o">@</span> <span class="n">R_so3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># (2N, 3, 3)</span>
+    <span class="n">w_o3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">w_so3</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">w_so3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">R_o3</span><span class="p">,</span> <span class="n">w_o3</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_rotations_from_angles</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial.transform</span><span class="w"> </span><span class="kn">import</span> <span class="n">Rotation</span>
+
+    <span class="c1"># Build all combinations (alpha_i, beta_i, gamma_j)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">gamma</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># (N, 1)</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># (N, 1)</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">alpha</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># (N, 1)</span>
+
+    <span class="c1"># Compose ZYZ rotations in SO(3)</span>
+    <span class="n">Rot</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">Rotation</span><span class="o">.</span><span class="n">from_euler</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">Rotation</span><span class="o">.</span><span class="n">from_euler</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">Rotation</span><span class="o">.</span><span class="n">from_euler</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Rot</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_compute_rotational_average</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">rotations</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">store_std</span><span class="p">):</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">rotations</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">weights</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">w</span> <span class="o">/</span> <span class="n">w</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_wreshape</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">w</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">B</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_wmean</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">_wreshape</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_wstd</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">mu</span> <span class="o">=</span> <span class="n">_wmean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">_wreshape</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># Energy (B,)</span>
+    <span class="k">if</span> <span class="s2">&quot;energy&quot;</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># (B,)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_wmean</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>  <span class="c1"># ()</span>
+        <span class="k">if</span> <span class="n">store_std</span><span class="p">:</span>
+            <span class="n">out</span><span class="p">[</span><span class="s2">&quot;energy_rot_std&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_wstd</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>  <span class="c1"># ()</span>
+
+    <span class="k">if</span> <span class="s2">&quot;energies&quot;</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;energies&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># (B,N)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s2">&quot;energies&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_wmean</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>  <span class="c1"># (N,)</span>
+        <span class="k">if</span> <span class="n">store_std</span><span class="p">:</span>
+            <span class="n">out</span><span class="p">[</span><span class="s2">&quot;energies_rot_std&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_wstd</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>  <span class="c1"># (N,)</span>
+
+    <span class="c1"># Forces (B,N,3) from rotated structures: back-rotate with F&#39; R</span>
+    <span class="k">if</span> <span class="s2">&quot;forces&quot;</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;forces&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># (B,N,3)</span>
+        <span class="n">F_back</span> <span class="o">=</span> <span class="n">F</span> <span class="o">@</span> <span class="n">R</span>  <span class="c1"># F&#39; R</span>
+        <span class="n">out</span><span class="p">[</span><span class="s2">&quot;forces&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_wmean</span><span class="p">(</span><span class="n">F_back</span><span class="p">)</span>  <span class="c1"># (N,3)</span>
+        <span class="k">if</span> <span class="n">store_std</span><span class="p">:</span>
+            <span class="n">out</span><span class="p">[</span><span class="s2">&quot;forces_rot_std&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_wstd</span><span class="p">(</span><span class="n">F_back</span><span class="p">)</span>  <span class="c1"># (N,3)</span>
+
+    <span class="c1"># Stress (B,3,3) from rotated structures: back-rotate with R^T S&#39; R</span>
+    <span class="k">if</span> <span class="s2">&quot;stress&quot;</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;stress&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># (B,3,3)</span>
+        <span class="n">RT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">S_back</span> <span class="o">=</span> <span class="n">RT</span> <span class="o">@</span> <span class="n">S</span> <span class="o">@</span> <span class="n">R</span>  <span class="c1"># R^T S&#39; R</span>
+        <span class="n">out</span><span class="p">[</span><span class="s2">&quot;stress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_wmean</span><span class="p">(</span><span class="n">S_back</span><span class="p">)</span>  <span class="c1"># (3,3)</span>
+        <span class="k">if</span> <span class="n">store_std</span><span class="p">:</span>
+            <span class="n">out</span><span class="p">[</span><span class="s2">&quot;stress_rot_std&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_wstd</span><span class="p">(</span><span class="n">S_back</span><span class="p">)</span>  <span class="c1"># (3,3)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;stresses&quot;</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;stresses&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># (B,N,3,3)</span>
+        <span class="n">RT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">S_back</span> <span class="o">=</span> <span class="n">RT</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">@</span> <span class="n">S</span> <span class="o">@</span> <span class="n">R</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>  <span class="c1"># R^T S&#39; R</span>
+        <span class="n">out</span><span class="p">[</span><span class="s2">&quot;stresses&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_wmean</span><span class="p">(</span><span class="n">S_back</span><span class="p">)</span>  <span class="c1"># (N,3,3)</span>
+        <span class="k">if</span> <span class="n">store_std</span><span class="p">:</span>
+            <span class="n">out</span><span class="p">[</span><span class="s2">&quot;stresses_rot_std&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_wstd</span><span class="p">(</span><span class="n">S_back</span><span class="p">)</span>  <span class="c1"># (N,3,3)</span>
+
+    <span class="k">return</span> <span class="n">out</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_group_operations</span><span class="p">(</span>
+    <span class="n">atoms</span><span class="p">:</span> <span class="n">ase</span><span class="o">.</span><span class="n">Atoms</span><span class="p">,</span> <span class="n">symprec</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="n">angle_tolerance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract point-group rotations Q_g (Cartesian, 3x3) and the corresponding</span>
+<span class="sd">    atom-index permutations P_g (N x N) induced by the space-group operations.</span>
+<span class="sd">    Returns Q_list, Cartesian rotation matrices of the point group,</span>
+<span class="sd">    and P_list, permutation matrices mapping original indexing -&gt; indexing after (R,t),</span>
+
+<span class="sd">    :param atoms: input structure</span>
+<span class="sd">    :param symprec: tolerance for symmetry finding</span>
+<span class="sd">    :param angle_tolerance: tolerance for symmetry finding (in degrees). If less than 0,</span>
+<span class="sd">        a value depending on ``symprec`` will be chosen automatically by spglib.</span>
+<span class="sd">    :return: List of rotation matrices and permutation matrices.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">spglib</span>
+    <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+            <span class="s2">&quot;spglib is required to use the SymmetrizedCalculator with &quot;</span>
+            <span class="s2">&quot;`apply_group_symmetry=True`. Please install it with &quot;</span>
+            <span class="s2">&quot;`pip install spglib` or `conda install -c conda-forge spglib`&quot;</span>
+        <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">pbc</span><span class="o">.</span><span class="n">all</span><span class="p">()):</span>
+        <span class="c1"># No periodic boundary conditions: no symmetry</span>
+        <span class="k">return</span> <span class="p">[],</span> <span class="p">[]</span>
+
+    <span class="c1"># Lattice with column vectors a1,a2,a3 (spglib expects (cell, frac, Z))</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># (3,3)</span>
+    <span class="n">frac</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_scaled_positions</span><span class="p">()</span>  <span class="c1"># (N,3) in [0,1)</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">numbers</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">spglib</span><span class="o">.</span><span class="n">get_symmetry_dataset</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span> <span class="n">numbers</span><span class="p">),</span>
+        <span class="n">symprec</span><span class="o">=</span><span class="n">symprec</span><span class="p">,</span>
+        <span class="n">angle_tolerance</span><span class="o">=</span><span class="n">angle_tolerance</span><span class="p">,</span>
+        <span class="n">_throw</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># No symmetry found</span>
+        <span class="k">return</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="n">R_frac</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">rotations</span>  <span class="c1"># (n_ops, 3,3), integer</span>
+    <span class="n">t_frac</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">translations</span>  <span class="c1"># (n_ops, 3)</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">numbers</span>
+
+    <span class="c1"># Match fractional coords modulo 1 within a tolerance, respecting chemical species</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_match_index</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">frac_ref</span><span class="p">,</span> <span class="n">Z_ref</span><span class="p">,</span> <span class="n">Z_i</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">frac_ref</span> <span class="o">-</span> <span class="n">x_new</span><span class="p">)</span>  <span class="c1"># (N,3)</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span>  <span class="c1"># periodic distance</span>
+        <span class="c1"># Mask by identical species</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">Z_ref</span> <span class="o">==</span> <span class="n">Z_i</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;No matching species found while building permutation.&quot;</span><span class="p">)</span>
+        <span class="c1"># Choose argmin over max-norm within species</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">idx</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))]</span>
+
+        <span class="c1"># Sanity check</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Sanity check failed in _match_index: max distance </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="si">}</span><span class="s2"> &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;exceeds tolerance </span><span class="si">{</span><span class="n">tol</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">j</span>
+
+    <span class="n">Q_list</span><span class="p">,</span> <span class="n">P_list</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">Ainv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">Rf</span><span class="p">,</span> <span class="n">tf</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">R_frac</span><span class="p">,</span> <span class="n">t_frac</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="c1"># Cartesian rotation: Q = A Rf A^{-1}</span>
+        <span class="n">Q</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">Rf</span> <span class="o">@</span> <span class="n">Ainv</span>
+        <span class="c1"># Deduplicate rotations (point group) by rounding</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="mi">12</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+        <span class="c1"># Build the permutation P from i to j</span>
+        <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">new_frac</span> <span class="o">=</span> <span class="p">(</span><span class="n">frac</span> <span class="o">@</span> <span class="n">Rf</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">tf</span><span class="p">)</span> <span class="o">%</span> <span class="mf">1.0</span>  <span class="c1"># images after (Rf,tf)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">_match_index</span><span class="p">(</span><span class="n">new_frac</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">frac</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># column i maps to row j</span>
+
+        <span class="n">Q_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
+        <span class="n">P_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Q_list</span><span class="p">,</span> <span class="n">P_list</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_average_over_group</span><span class="p">(</span>
+    <span class="n">results</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">Q_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">P_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply the point-group projector in output space.</span>
+
+<span class="sd">    :param results: Must contain &#39;energy&#39; (scalar), and/or &#39;forces&#39; (N,3), and/or</span>
+<span class="sd">        &#39;stress&#39; (3,3). These are predictions for the current structure in the reference</span>
+<span class="sd">        frame.</span>
+<span class="sd">    :param Q_list: Rotation matrices of the point group, from</span>
+<span class="sd">        :py:func:`_get_group_operations`</span>
+<span class="sd">    :param P_list: Permutation matrices of the point group, from</span>
+<span class="sd">        :py:func:`_get_group_operations`</span>
+<span class="sd">    :return out: Projected quantities.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Q_list</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">results</span>  <span class="c1"># nothing to do</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># Energy: unchanged by the projector (scalar)</span>
+    <span class="k">if</span> <span class="s2">&quot;energy&quot;</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="n">out</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Forces: (N,3) row-vectors; projector: (1/|G|) \sum_g P_g^T F Q_g</span>
+    <span class="k">if</span> <span class="s2">&quot;forces&quot;</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;forces&quot;</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">F</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">F</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;forces&#39; must be (N,3), got </span><span class="si">{</span><span class="n">F</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">Q</span><span class="p">,</span> <span class="n">P</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Q_list</span><span class="p">,</span> <span class="n">P_list</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">acc</span> <span class="o">+=</span> <span class="n">P</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">F</span> <span class="o">@</span> <span class="n">Q</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s2">&quot;forces&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">acc</span> <span class="o">/</span> <span class="n">m</span>
+
+    <span class="c1"># Stress: (3,3); projector: (1/|G|) \sum_g Q_g^T S Q_g</span>
+    <span class="k">if</span> <span class="s2">&quot;stress&quot;</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;stress&quot;</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">S</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;stress&#39; must be (3,3), got </span><span class="si">{</span><span class="n">S</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># S = 0.5 * (S + S.T)  # symmetrize just in case</span>
+        <span class="n">acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">Q</span> <span class="ow">in</span> <span class="n">Q_list</span><span class="p">:</span>
+            <span class="n">acc</span> <span class="o">+=</span> <span class="n">Q</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">S</span> <span class="o">@</span> <span class="n">Q</span>
+        <span class="n">S_pg</span> <span class="o">=</span> <span class="n">acc</span> <span class="o">/</span> <span class="n">m</span>
+        <span class="n">out</span><span class="p">[</span><span class="s2">&quot;stress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">S_pg</span>
+
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, the metatomic developers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/toggleprompt.js?v=5801b3bb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=4b1677b9"></script>
+    <script data-domain="docs.metatensor.org" defer="defer" src="https://plausible.io/js/script.js"></script>
+    </body>
+</html>
